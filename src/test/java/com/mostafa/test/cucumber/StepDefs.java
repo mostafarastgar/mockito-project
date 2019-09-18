@@ -20,9 +20,9 @@ public class StepDefs extends CucumberSpringContextConfiguration {
         assertEquals(Integer.parseInt(environment.getProperty("local.server.port")), port);
     }
 
-    @When("^the client calls /version$")
-    public void the_client_issues_GET_version() throws Throwable{
-        latestResponse = restTemplate.getForEntity("http://localhost:8080/version", String.class);
+    @When("^the client calls (.+)$")
+    public void the_client_issues_GET_version(String path) throws Throwable{
+        latestResponse = restTemplate.getForEntity("http://localhost:8080" + path, String.class);
     }
 
     @Then("^the client receives status code of (\\d+)$")
