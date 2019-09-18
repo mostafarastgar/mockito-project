@@ -31,7 +31,8 @@ public class UserManager {
         if(exchange.getBody().equals("true")){
             userDao.save(newUser);
             System.out.println("we are allowed to add user");
+            return true;
         }
-        return true;
+        return false;
     }
 }
