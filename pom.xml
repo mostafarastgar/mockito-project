@@ -11,7 +11,7 @@
     <groupId>com.mostafa.test</groupId>
     <artifactId>mockito</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <description>Demo project for Spring Boot</description>
+    <description>Demo project for Mokito, Wiremock, Cucumber</description>
 
     <properties>
         <java.version>11</java.version>
