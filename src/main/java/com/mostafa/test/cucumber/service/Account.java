@@ -1,5 +1,7 @@
 package com.mostafa.test.cucumber.service;
 
+import com.mostafa.test.cucumber.repository.CardRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
@@ -11,15 +13,13 @@ import java.util.Set;
 public class Account {
     private int accountBalance;
     private String cardNo;
-    private Set<String> validCards;
+
+    @Autowired
+    CardRepository cardRepository;
 
     public void init(int accountBalance, String cardNo) throws Exception {
         this.accountBalance = accountBalance;
         this.cardNo = cardNo;
-        validCards = new HashSet<>() {{
-            add("1527");
-            add("1531");
-        }};
         if (!check4validCardNo()) {
             throw new Exception("invalid card number");
         }
@@ -42,6 +42,6 @@ public class Account {
     }
 
     private boolean check4validCardNo() {
-        return validCards.contains(cardNo);
+        return cardRepository.getAllValidCards().contains(cardNo);
     }
 }
