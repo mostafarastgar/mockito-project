@@ -11,7 +11,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
-public class StepDefs extends CucumberSpringContextConfiguration {
+public class VersionStepsDefs extends CucumberSpringContextConfiguration {
 
     private static ResponseEntity<String> latestResponse;
 
